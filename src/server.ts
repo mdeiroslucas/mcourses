@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express'
-import 'express-async-errors';
 import cors from 'cors';
+import 'express-async-errors';
 
 import { router } from './routes';
 
