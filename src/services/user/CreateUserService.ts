@@ -1,12 +1,9 @@
 import { Router, Request, Response } from 'express'
 
+class CreateUserService {
+  async execute() {
+    return {ok: true}
+  }
+}
 
-
-
-const router = Router();
-
-router.get('/teste', (req: Request, res: Response) => {
-  return res.json({nome: 'Matheus'})
-})
-
-export {router};
+export {CreateUserService}
