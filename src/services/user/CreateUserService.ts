@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import prismaClient from "../../prisma";
 
 interface UserRequest {
@@ -9,7 +10,7 @@ interface UserRequest {
 class CreateUserService {
   async execute({ name, email, password }: UserRequest) {
 
-    const userAlreadyExists = await prismaClient.findUnique({
+    const userAlreadyExists = await prismaClient.user.findFirst({
       where: {
         email: email,
       },
@@ -17,7 +18,6 @@ class CreateUserService {
 
     if (!email) {
       throw new Error("Email incorrect");
-      
     }
 
     if (userAlreadyExists) {
